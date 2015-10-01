@@ -1,2 +1,2 @@
 # quran
-Quran Corpus
+Quran Corpus, the last
