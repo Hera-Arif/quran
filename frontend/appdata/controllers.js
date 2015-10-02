@@ -1,5 +1,5 @@
 angular.module('quran')
-.controller('quran', ['$scope', 'api', '_', function ($scope, api, _) {
+.controller('quranSurah', ['$scope', 'api', '_', function ($scope, api, _) {
 	api('quran', {
 		'method': 'GET',
 		'data': {
@@ -7,5 +7,6 @@ angular.module('quran')
 		}
 	}).success(function (data) {
 		$scope.quran = data;
+		console.log(data)
 	})
 }])

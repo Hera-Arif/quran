@@ -1,1 +1,12 @@
-angular.module('quran', ['ui.route'])
+angular.module('quran', ['ui.router'])
+.config(function($stateProvider, $urlRouterProvider) {
+    
+    $urlRouterProvider.otherwise('/surah/1/1');
+    
+    $stateProvider
+        .state('surah', {
+            url: '/surah/:surah/:ayah',
+            templateUrl: 'appdata/quran.html',
+            controller: 'quranSurah'
+        })
+});
