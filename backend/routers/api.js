@@ -24,7 +24,11 @@ function autoRouter(base, data) {
 
 autoRouter('/quran/', {
    get: function(req, res) {
-      quran.find({}, function(err, data) {
+      if (typeof req.query.q === 'string') {
+         req.query.q = JSON.parse(req.query.q)
+      }
+      
+      quran.find(req.query.q, function(err, data) {
          if (err) {
             res.json({
                error: true,

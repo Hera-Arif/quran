@@ -1,1 +1,3 @@
-{{quran}}
+<div ng-repeat="ayah in quran">
+    <span ng-repeat="ibarah in ayah.ibarah"> <span ng-repeat="kalimah in ibarah">{{kalimah.word | }}</span>
+</div>

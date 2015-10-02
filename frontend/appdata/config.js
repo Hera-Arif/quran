@@ -6,7 +6,7 @@ angular.module('quran', ['ui.router'])
     $stateProvider
         .state('surah', {
             url: '/surah/:surah/:ayah',
-            templateUrl: 'appdata/quran.html',
+            templateUrl: 'appdata/states/quran.html',
             controller: 'quranSurah'
         })
 });

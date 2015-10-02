@@ -1,11 +1,13 @@
 angular.module('quran')
-.controller('quranSurah', ['$scope', 'api', '_', function ($scope, api, _) {
+.controller('quranSurah', ['$scope', 'api', 'transliter', '_', function ($scope, api, transliter, _) {
 	api('quran', {
 		'method': 'GET',
-		'data': {
-			'in.surah': 1
+		'params': {
+			q: {
+				'in.surah': 1
+			}
 		}
-	}).success(function (data) {
+	}, function (data) {
 		$scope.quran = data;
 		console.log(data)
 	})
