@@ -3,7 +3,7 @@ var router = express.Router();
 var Nedb = require('nedb');
 
 var quran = new Nedb({
-   filename: 'backend/database/quran',
+   filename: 'backend/database/quran_new',
    autoload: true
 });
 var dict = new Nedb({
@@ -25,7 +25,7 @@ function autoRouter(base, data) {
 autoRouter('/quran/', {
    get: function(req, res) {
       if (typeof req.query.q === 'string') {
-         req.query.q = JSON.parse(req.query.q)
+         req.query.q = _JSON.parse(req.query.q)
       }
       
       quran.find(req.query.q, function(err, data) {

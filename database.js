@@ -8,6 +8,15 @@ var qn = new Nedb({
    filename: 'backend/database/quran_new',
    autoload: true
 });
+var Firebase = require("firebase");
+var ref = new Firebase("https://quran-faisdb.firebaseio.com/");
+var FirebaseTokenGenerator = require("firebase-token-generator");
+var tokenGenerator = new FirebaseTokenGenerator("InY4388GpxlfESEBLMcXSKSd3n5idr86QNP9bLr1");
+var token = tokenGenerator.createToken({ uid: 'quran', admin: true });
+ref.authWithCustomToken(token, function (err, data) {
+	console.log(err || data)
+});
+var fbquran = ref.child('quran')
 
 var _ = {
 		'join': function (par1, par2) {
@@ -32,39 +41,48 @@ var _ = {
 		}
 	}
 
-qn.find({'in.surah': 1}, function(err, data) {
-   console.log(err || data)
-})
+// qn.find({'in.surah': 1}, function(err, data) {
+//   console.log(err || data)
+// })
 
-// q.find({}).sort({
-//       'in.surah': 1,
-//       'in.ayah': 1
-//    }).exec(function (err, data) {
-//       var result = [],
-//       xLength = data.length
-//       for(var x = 0; xLength > x; x++) {
-//          result[x] = {}
-//          result[x].ibarah = []
-//          var yLength = data[x].ibarah.length
-//          for (var y = 0; yLength > y; y++) {
-//             result[x].ibarah[y] = []
-//             var zLength = data[x].ibarah[y]? data[x].ibarah[y].length : 0;
-//             for (var z = 0; zLength > z; z++) {
-//                result[x].ibarah[y][z] = data[x].ibarah[y][z]? _.join(data[x].ibarah[y][z], { arabic: transliter(data[x].ibarah[y][z].word) }) : data[x].ibarah[y][z]
-//             }
-//          }
-//       }
-//       xLength = result.length
-//       for (x = 1; xLength > x; x++) {
-//          qn.insert(result[x], function(err, data) {
-//             if (!err) {
-//                console.log('ayah : ' + x + '. success')
-//             } else {
-//                console.log('Surah : ' + x + '. err : ' + err)
-//             }
-//          })
-//       }
-//    })
+q.find({}).sort({
+      'in.surah': 1,
+      'in.ayah': 1
+    }).exec(function (err, data) {
+      var result = [],
+      xLength = data.length
+      for(var x = 0; xLength > x; x++) {
+         //result[x] = {}
+         //result[x].ibarah = []
+         var yLength = data[x].ibarah.length
+         for (var y = 0; yLength > y; y++) {
+            // result[x].ibarah[y] = []
+            var zLength = data[x].ibarah[y]? data[x].ibarah[y].length : 0;
+            for (var z = 0; zLength > z; z++) {
+            	if (data[x].ibarah[y][z]) {
+            		data[x].ibarah[y][z].word = transliter(data[x].ibarah[y][z].word)
+            	}
+                // result[x].ibarah[y][z] = data[x].ibarah[y][z]? _.join(data[x].ibarah[y][z], { arabic: transliter(data[x].ibarah[y][z].word) }) : data[x].ibarah[y][z]
+            }
+         }
+         fbquran.set(data[x], function(err, data) {
+         	console.log("--Firebase--")
+            if (!err) {
+                console.log('ayah : ' + x + '. success')
+            } else {
+                console.log('Surah : ' + x + '. err : ' + err)
+            }
+         })
+         qn.insert(data[x], function(err, data) {
+         	console.log("--NeDB--")
+            if (!err) {
+                console.log('ayah : ' + x + '. success')
+            } else {
+                console.log('Surah : ' + x + '. err : ' + err)
+            }
+         })
+      }
+    })
 
 // q
 //    .find({})
