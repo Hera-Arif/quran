@@ -1,5 +1,6 @@
 angular.module('quran')
 .controller('quranSurah', ['$scope', 'api', 'transliter', '_', function ($scope, api, transliter, _) {
+	console.log("tesr")
 	api('quran', {
 		'method': 'GET',
 		'params': {
