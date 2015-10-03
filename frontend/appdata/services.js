@@ -30,7 +30,6 @@ angular.module('quran')
 		var baseParams = {
 			'url': document.location.origin + '/api/' + url
 		}
-		console.log(baseParams)
 		$http(_.join(baseParams, params))
 		.success(success)
 	}

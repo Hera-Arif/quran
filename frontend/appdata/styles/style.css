@@ -1,0 +1,35 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%; 
+}
+
+#container {
+	width: 70%;
+	min-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5%;
+}
+@font-face {
+  font-family: 'arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//tanzil.info/res/font/org/me_quran.ttf), url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot);
+  src: url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.ttf) format('truetype');
+}
+
+.kalimah {
+	font-family: 'arabic';
+	font-size: 36px;
+	color: #111;
+}
+#quran {
+	text-align: center;
+}

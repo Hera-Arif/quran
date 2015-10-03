@@ -24,11 +24,13 @@ app.get('/quran.manifest',function(req,res){
     res.end(
       [
         'CACHE MANIFEST',
-        '#v6',
+        '#v8',
         'CACHE:',
         '/favicon.ico',
         '/components/bower/angular/angular.min.js',
         '/components/bower/angular-ui-router/release/angular-ui-router.min.js',
+			'//tanzil.info/res/font/org/me_quran.ttf',
+			'//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot',
         'NETWORK:',
         '/',
         '*'
