@@ -1,3 +1,1 @@
-<div id="quran" ng-if="quran" ng-repeat="ayah in quran">
-    <span ng-if="ayah.ibarah" ng-repeat="ibarah in ayah.ibarah"> <span class="kalimah" ng-class="kalimah.prop.POS +' '+ kalimah.prop.addits.join(' ')" ng-if="kalimah.word" ng-repeat="kalimah in ibarah">{{kalimah.word | alpha_arabic}}</span>
-</div>
+<div id="quran" ng-if="quran && ayah" ng-repeat="ayah in quran"> <span ng-if="ayah.ibarah && ibarah" ng-repeat="ibarah in ayah.ibarah"><span class="kalimah" ng-class="kalimah.prop.POS +' '+ kalimah.prop.addits.join(' ')" ng-if="kalimah.word && kalimah" ng-repeat="kalimah in ibarah">{{kalimah.word | alpha_arabic}}<span></span></div>

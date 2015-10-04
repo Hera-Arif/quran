@@ -38,7 +38,7 @@ angular.module('quran')
 .factory('transliter', [function () {
 	return {
 		'alpha_arabic': function (text) {
-			text = text.split('')
+			text = text.replace('a`', '`').split('')
 			
 			var char = {
 				"'" : String.fromCharCode(1569),
