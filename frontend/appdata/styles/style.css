@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    width: 100%; 
+    width: 100%;
 }
 
 #container {
@@ -12,7 +12,8 @@ body {
 	min-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 5%;
+	padding: 1% 5%;
+	background-color: white
 }
 @font-face {
   font-family: 'arabic';
@@ -21,48 +22,52 @@ body {
   src: url(//tanzil.info/res/font/org/me_quran.ttf), url(//fonts.gstatic.com/ea/droidarabicnaskh/v7/DroidNaskh-Regular.eot);
 }
 
+#quran {
+	text-align: right;
+}
 .kalimah {
 	font-family: 'arabic';
 	font-size: 36px;
 	color: #111;
+	border-bottom: 1px solid;
 }
-#quran {
-	text-align: center;
+.ibarah {
+	margin: 0px 3px;
 }
 
 .P {
-    color: #880000
+    color: #880000;
 }
 .DET {
-    color: #665555
+    color: #665555;
 }
 .REL {
     color: #663366
 }
 .PRON {
-    color: #445500
+    color: #445500;
 }
 .DEM {
     color: #004433;
 }
 .N {
-    color: #003300
+    color: #003300;
 }
 .PN {
-    color: #002200
+    color: #002200;
 }
 .ADJ {
-    color: #332255
+    color: #332255;
 }
 .NEG {
-    color: #990000
+    color: #990000;
 }
 .V {
-    color: #884433
+    color: #884433;
 }
 .CONJ {
-    color: #771100
+    color: #771100;
 }
 .ACC {
-    color: #991100
+    color: #991100;
 }

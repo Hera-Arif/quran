@@ -17,7 +17,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(require('less-middleware')(path.join(__dirname, 'frontend', 'appdata', 'styles')));
+app.use(require('less-middleware')(path.join(__dirname, 'frontend')));
 app.use(express.static(path.join(__dirname, 'frontend')));
 app.get('/quran.manifest',function(req,res){
     res.setHeader('content-type','text/cache-manifest');
